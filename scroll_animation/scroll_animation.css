@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom, #001f3f, #003366); 
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1 {
+  margin: 10px;
+  color: #fff;
+  font-size: 3rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.box {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.6)), 
+              url('https://www.transparenttextures.com/patterns/stars.png'); 
+  background-blend-mode: overlay;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); 
+  transform: translateX(400%);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/stars.png') repeat; 
+  opacity: 0.3; 
+}
+
+.box:nth-of-type(even) {
+  transform: translateX(-400%);
+}
+
+.box.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.box h2 {
+  font-size: 45px; 
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
