@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+:root {
+  --gradient: linear-gradient(90deg, #060058, #470055, #005323);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Bungee", cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-y: auto;
+  background: #25008a96;
+  background-size: 300%;
+  background-image: var(--gradient);
+  animation: bg-animation 20s infinite alternate;
+  color: #180070;
+  font-size: 1.5em;
+  line-height: 1.8;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+.header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem 2.5rem;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 60px;
+  height: auto;
+  margin-right: 15px;
+}
+
+.logo span {
+  font-size: 2em;
+  color: #7f7fd5;
+  font-weight: 700;
+}
+
+.header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem 2.5rem;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: top 0.3s ease-in-out; 
+}
+
+.header.hide {
+  top: -100px; 
+}
+
+.separator {
+  width: 100%;
+  height: 10vh; 
+}
+
+.container {
+  background: #fff;
+  width: 95vw;
+  max-width: 1200px; 
+  padding: 4rem;
+  box-shadow: 0 0 3rem var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20vh; 
+  animation: container-fade-in 2s ease-in-out;
+}
+
+@keyframes container-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.title {
+  margin: 1.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 5rem; 
+  color: #7f7fd5;
+  line-height: 0.9;
+  background-image: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background-size: 300%;
+  transition: background-position 1s;
+  animation: text-shadow 2s infinite alternate, title-fade-in 3s ease-in-out;
+}
+
+@keyframes title-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title:hover {
+  background-position: right;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.countdown-item {
+  background: #fff;
+  color: #7f7fd5;
+  border-radius: 5px;
+  padding: 15px 25px;
+  margin: 0 15px;
+  text-align: center;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  transition: box-shadow 0.3s;
+}
+
+.countdown-number {
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.countdown-label {
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn {
+  color: #fff;
+  font: inherit;
+  border: 0;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  background: var(--gradient);
+  background-size: 300%;
+  background-position: left;
+  transition: background-position 350ms, transform 0.2s;
+  border-radius: 5px;
+  margin: 15px;
+  font-size: 1.2em;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  animation: button-glow 1.5s infinite alternate;
+}
+
+@keyframes button-glow {
+  0% {
+    box-shadow: 0 2px 5px var(--shadow-color), 0 0 10px #7f7fd5;
+  }
+  100% {
+    box-shadow: 0 4px 10px var(--shadow-color), 0 0 20px #f64f59;
+  }
+}
+
+.btn:hover {
+  background-position: right;
+  transform: scale(1.05);
+}
+
+/* Form styling */
+form {
+  margin-top: 30px;
+  width: 100%;
+}
+
+form h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  font-weight: 700;
+  animation: fade-in 2s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: #888;
+}
+
+form textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+form button {
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+  padding: 20px;
+  font-size: 1.2em;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-position 0.3s, transform 0.2s;
+  animation: button-glow 1.5s infinite alternate;
+}
+
+form button:hover {
+  background-position: right;
+  transform: scale(1.05);
+}
